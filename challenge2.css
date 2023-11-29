@@ -1,0 +1,35 @@
+* {
+  text-align: center;
+  color: grey;
+}
+
+h1 {
+  color: black;
+}
+
+h2 {
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+h1 + p {
+  font-style: italic;
+  color: black;
+}
+
+h2 ~ p {
+  color: black;
+  text-decoration: underline;
+}
+
+h3 + p {
+  text-decoration: none;
+}
+
+h3 + p ~ p {
+  color: blue;
+  text-decoration: none;
+}
