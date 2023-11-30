@@ -1,0 +1,26 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.upper {
+  border:3px dashed green;
+}
+
+.upper__para--blue {
+  color: blue;
+  text-decoration: line-through;
+}
+
+.lower {
+  border:2px solid coral;
+}
+
+.lower__header {
+  text-align: center;
+}
+
+.lower__para--blue--right {
+  color: blue;
+  text-decoration: line-through;
+  text-align: right;
+}
