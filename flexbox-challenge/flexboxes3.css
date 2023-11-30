@@ -1,0 +1,42 @@
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 900px;
+  height: 300px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+div {
+  width: 33%;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#blue {
+  background-color:lightblue;
+}
+
+#orange {
+  background-color: orange;
+}
+
+#pink {
+  background-color: hotpink;
+}
+
+#red {
+  background-color:crimson
+}
+
+#green {
+  background-color: lightgreen;
+}
