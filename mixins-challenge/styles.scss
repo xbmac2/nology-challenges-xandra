@@ -1,0 +1,17 @@
+@use "./partials/mixins";
+
+p {
+  @include mixins.text;
+}
+
+.button {
+  @include mixins.border(dotted, red);
+}
+
+.chip {
+  @include mixins.border(solid, blue);
+}
+
+.pill {
+  @include mixins.border(dashed, blue);
+}

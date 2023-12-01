@@ -1,0 +1,9 @@
+@mixin text{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+@mixin border($line-style, $color) {
+  border: 2px $line-style $color;
+}
