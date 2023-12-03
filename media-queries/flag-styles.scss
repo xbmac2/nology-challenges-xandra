@@ -2,6 +2,7 @@
 
 .flag {
   width: 600px;
+  height: 300px;
   display: flex;
 
   @include flag-mixins.small {
@@ -27,7 +28,13 @@
 
 
 .stripe__left {
-  background-color: black;
+  @include flag-mixins.small {
+    background-color: black;
+  }
+
+  @include flag-mixins.medium {
+    background-color: black;
+  }
 
   @include flag-mixins.large {
     background-color: green;
