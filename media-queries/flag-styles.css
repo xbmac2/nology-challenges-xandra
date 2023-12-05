@@ -1,0 +1,76 @@
+.flag {
+  width: 600px;
+  height: 300px;
+  display: flex;
+}
+@media only screen and (max-width: 600px) {
+  .flag {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stripe {
+    height: 100px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .stripe {
+    width: 200px;
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 901px) {
+  .stripe {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stripe__left {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .stripe__left {
+    background-color: black;
+  }
+}
+@media only screen and (min-width: 901px) {
+  .stripe__left {
+    background-color: green;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stripe__mid {
+    background-color: red;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .stripe__mid {
+    background-color: yellow;
+  }
+}
+@media only screen and (min-width: 901px) {
+  .stripe__mid {
+    background-color: white;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stripe__right {
+    background-color: yellow;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .stripe__right {
+    background-color: red;
+  }
+}
+@media only screen and (min-width: 901px) {
+  .stripe__right {
+    background-color: orange;
+  }
+}

@@ -1,0 +1,66 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 600px;
+  border: 3px solid black;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+} 
+
+#paleblue {
+  background-color: lightsteelblue;
+}
+
+#red {
+  background-color:lightcoral;
+}
+
+#green {
+  background-color:lightgreen;
+}
+
+#orange {
+  background-color:darksalmon;
+}
+
+#pink {
+  background-color:lightpink;
+}
+
+#grey {
+  background-color:darkgrey;
+}
+
+#babyblue {
+  background-color:lightcyan;
+}
+
+#blue {
+  background-color:lightskyblue;
+}

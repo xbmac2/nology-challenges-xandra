@@ -1,0 +1,70 @@
+@use "./partials/flag-mixins";
+
+.flag {
+  width: 600px;
+  height: 300px;
+  display: flex;
+
+  @include flag-mixins.small {
+    flex-direction: column;
+  }
+}
+
+.stripe {
+  @include flag-mixins.small {
+    height: 100px;
+  }
+
+  @include flag-mixins.medium {
+    width: 200px;
+    height: 300px;
+  }
+
+  @include flag-mixins.large {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+
+.stripe__left {
+  @include flag-mixins.small {
+    background-color: black;
+  }
+
+  @include flag-mixins.medium {
+    background-color: black;
+  }
+
+  @include flag-mixins.large {
+    background-color: green;
+  }
+}
+
+.stripe__mid {
+  @include flag-mixins.small {
+    background-color: red;
+  }
+
+  @include flag-mixins.medium {
+    background-color: yellow;
+  }
+
+  @include flag-mixins.large {
+    background-color: white;
+  }
+}
+
+.stripe__right {
+  @include flag-mixins.small {
+    background-color: yellow;
+  }
+
+  @include flag-mixins.medium {
+    background-color: red;
+  }
+
+  @include flag-mixins.large {
+    background-color: orange;
+  }
+}
