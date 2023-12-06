@@ -1,5 +1,5 @@
 function moonOrbits(earthDays) {
-  return (earthDays / 27.3).toFixed(3);
+  return Number((earthDays / 27.3).toFixed(3));
 }
 
 console.log(moonOrbits(54));
@@ -46,6 +46,8 @@ function lessThanHundred(num1, num2) {
   } else {
     return false;
   }
+
+  // return num1 + num2 < 100;
 }
 
 console.log(lessThanHundred(50, 50));
