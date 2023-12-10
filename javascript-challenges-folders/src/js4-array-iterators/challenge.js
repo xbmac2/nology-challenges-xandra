@@ -22,7 +22,8 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  const trueArray = booleanArr.filter((booleans) => booleans === true);
+  return trueArray;
 };
 
 /**
@@ -34,7 +35,11 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+  const percentageArray = numbersArr.map((num) => {
+    const percentNum = num * 100;
+    return percentNum + "%";
+  })
+  return percentageArray;
 };
 
 /**
@@ -47,7 +52,10 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  const discoOutfit = possessionsArr.map((item) => {
+    return name + " " + item;
+  })
+  return discoOutfit;
 };
 
 /**
@@ -72,7 +80,11 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  const onlyNumbers = numberString.split("+");
+  const onlyNumbersNotString = onlyNumbers.map((str) => {
+    return parseInt(str);
+  })
+  return onlyNumbersNotString;
 };
 
 /**
@@ -84,7 +96,18 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  const numbersOnly = numberString.split("+");
+  const numbersOnlyNotString = numbersOnly.map((str) => {
+    return parseInt(str);
+  })
+  const numbersOnlyConverted = numbersOnlyNotString.map((num) => {
+    if (num % 2 == 0) {
+      return "even";
+    } else {
+      return "odd";
+    }
+  })
+  return numbersOnlyConverted;
 };
 
 /**
@@ -97,7 +120,8 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  const relevantBooks = booksArr.filter((title) => title.includes(searchTerm))
+  return relevantBooks;
 };
 
 /**
@@ -117,12 +141,12 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
+  const cleanedArr = stringArr.map((string) => {
     const cleanStr = string.trim().toLowerCase();
     return cleanStr;
   });
 
-  // console.log(???)
+  // console.log(???) answer:forEach should be .map
 
   const joinedString = cleanedArr.join("+");
 
@@ -143,7 +167,17 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+  const lettersOnlyArray = string.split("").filter(char => /[a-zA-Z]/.test(char));
+
+  for (let i = 0; i < lettersOnlyArray.length; i++) {
+    if (i % 2 === 0) {
+      lettersOnlyArray[i] = lettersOnlyArray[i].toUpperCase();
+    } else {
+    lettersOnlyArray[i] = lettersOnlyArray[i].toLowerCase();
+  }
+}
+
+  return lettersOnlyArray;
 };
 
 /**
@@ -170,5 +204,20 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
+  const cleanArr = mixedArray.map((item) => parseInt(item));
+  const numArr = cleanArr.filter((num) => num > 0);
+
+  for (let i = 0; i < numArr.length; i++) {
+    if (numArr[i] % 3 === 0 && numArr[i] % 5 === 0) {
+    numArr[i] = "FizzBuzz";
+    } else if (numArr[i] % 3 === 0) {
+    numArr[i] = "Fizz";
+    } else if (numArr[i] % 5 === 0) {
+    numArr[i] = "Buzz"
+    } else {
+    numArr[i] = numArr[i].toString();
+    }
+  }
+  
+  return numArr;
 };

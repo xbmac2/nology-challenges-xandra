@@ -68,17 +68,13 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  let arrayOfRange = [];
-  for (let i = 0; i <= rangeMax; i++) {
-    arrayOfRange.push(i);
-  }
-  
-  let rangeTotal = 0;
-  for (let i = 0; i < arrayOfRange.length; i++) {
-    rangeTotal += arrayOfRange[i];
+  let total = 0;
+
+  for (let i = 0; i <= rangeMax; ++i) {
+    total += i;
   }
 
-  return rangeTotal;
+  return total;
 };
 
 /**
@@ -89,14 +85,9 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  let newNamesArray = [];
+  const newNamesArray = [...itemsArr];
 
-  for (let i = 0; i < itemsArr.length; i++) {
-    newNamesArray.push(itemsArr[i]);
-  }
-
-  newNamesArray.unshift(newNamesArray[newNamesArray.length - 1]);
-  newNamesArray.pop();
+  newNamesArray.unshift(newNamesArray.pop());
   return newNamesArray;
 };
 
@@ -115,13 +106,8 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  const oddArray = numberArr.filter((odds) => {
-    if (odds % 2 == 0) {
-      return false;
-    } else {
-      return true;
-    }
-  })
+  const cloneArr = [...numberArr];
+  const oddArray = cloneArr.filter((number) => number % 2 !== 0);
   return oddArray;
 };
 
@@ -158,7 +144,20 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return toReverseArr.toReversed();
+  const cloneArr = [...toReverseArr];
+
+  let head = 0;
+  let tail = cloneArr.length - 1;
+
+  while (head < tail) {
+    const tmp = cloneArr[head];
+    cloneArr[head] = cloneArr[tail];
+    cloneArr[tail] = tmp;
+    ++head;
+    --tail;
+  } 
+
+  return cloneArr;
 };
 
 /**
