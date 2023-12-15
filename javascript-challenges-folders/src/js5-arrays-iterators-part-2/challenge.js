@@ -22,7 +22,10 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  return;
+  const totalScores = scoresArr.reduce((accumulator, current) => {
+    return accumulator + current;
+  }, 0)
+  return totalScores;
 };
 
 /**
@@ -35,7 +38,8 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+  let switchUp = toReverse.split("").reverse().join("");
+  return switchUp;
 };
 
 /**
@@ -48,7 +52,8 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+  const lowerArr = charcterArr.map(letter => letter.toLowerCase());
+  return lowerArr.sort();
 };
 
 /**
@@ -63,7 +68,9 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  const orderedArr = numberArr.sort(function(a, b){return b-a});
+  // used compare function to sort
+  return orderedArr;
 };
 
 /**
@@ -94,7 +101,11 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
+  if (stockList.includes(toCheck) === true) {
+    return `${toCheck} is instock, it is on aisle ${stockList.indexOf(toCheck)}.`;
+  } else {
+    return `Sorry ${toCheck} is not instock.`;
+  }
 };
 
 /**
@@ -108,7 +119,7 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+  return coloursArr.every (colour => colour === "red" || colour === "yellow" ||colour === "blue");
 };
 
 /**
@@ -125,7 +136,11 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+  if (stringOne === stringOne.split("").reverse().join("")) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /**
@@ -139,7 +154,15 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+  function sumUp(total, num) {
+    return total + num;
+  };
+
+  let tmp = [...scoresArr]
+  for (let i = 0; i < tmp.length; i++) {
+    tmp[i] = tmp[i].reduce(sumUp);
+  }
+  return tmp;
 };
 
 /**
@@ -172,5 +195,8 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+  return toEncrypt
+  .split("")
+  .reduce((acc, curr, ind) => (acc[ind % 3].push(curr), acc), [[],[],[]])
+  .flat().join("");
 };
