@@ -51,7 +51,9 @@ export class Alert {
    * Create an alert.
    * @param {string} message - "Are sure you want to proceed?"
    */
-  constructor() {}
+  constructor(message) {
+    this.message = message;
+  }
 
   /**
    * Returns a string with "!!!! " + " !!!!" added to the start and end of the message key.
@@ -355,13 +357,18 @@ export class BookShelf {
    */
 
   // WRITE LATEST BOOK GETTER HERE
-
+  get latestBook() {
+    return this._booksOnShelf[this._booksOnShelf.length - 1];
+  }
   /**
    * A setter that adds a new book to the list of books.
    * @param {string} "Eloquent JavaScript"
    */
 
   // WRITE ADD BOOK TO SHELF SETTER HERE
+  set addBookToShelf(book) {
+    return this._booksOnShelf.push(book);
+  }
 }
 
 /**
@@ -414,7 +421,15 @@ export class BankAccount {
    * @param {string} email
    * @param {number} balance
    */
-  constructor() {}
+  constructor(name, email, balance) {
+    this.name = name;
+    this.email = email;
+    if (balance) {
+      this._balance = balance;
+    } else {
+      this._balance = 0;
+    }
+  }
 
   /**
    * A getter that returns the current balance.
@@ -422,7 +437,9 @@ export class BankAccount {
    */
 
   // WRITE BALANCE GETTER HERE
-
+  get balance() {
+    return this._balance;
+  }
   /**
    * A method that deposits to the balance.
    * It checks if the input is correct.
@@ -433,6 +450,15 @@ export class BankAccount {
    */
 
   // WRITE DEPOSIT METHOD HERE
+  deposit(amount) {
+    if (typeof amount === "number" && amount > 0) {
+      return this._balance += amount;
+    } else if (typeof amount === 'string' &&  Number(amount) != NaN && Number(amount) > 0) {
+      return this._balance = this._balance + Number(amount);
+    } else {
+      return "Invalid input, unable to deposit";
+    }
+  }
 
   /**
    * A method that withdraws from the balance.
@@ -445,4 +471,16 @@ export class BankAccount {
    */
 
   // WRITE WITH DRAW METHOD HERE
+  withdraw(amount) {
+    if (amount > 0 && amount > this._balance) {
+      return "Insufficient funds, unable to withdraw";
+    } else if (amount > 0) {
+      return this._balance -= amount;
+    } else if (typeof amount === 'string' && Number(amount) > 0 && Number(amount) > this._balance) {
+      Number(amount);
+      return this._balance -= amount;
+    } else {
+      return "Invalid input, unable to withdraw";
+    }
+  }
 }

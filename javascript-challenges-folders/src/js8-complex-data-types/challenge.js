@@ -51,6 +51,11 @@ export const getNumberOfKeys = (object) => {
  */
 export const findMostExpensiveItem = (shoppingBasketArr) => {
   // Write code here
+  function compareByPrice(a, b) {
+    return a.price - b.price;
+  }
+
+  return shoppingBasketArr.sort(compareByPrice)[shoppingBasketArr.length - 1]
 };
 
 /**
@@ -70,6 +75,11 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  */
 export const settotalPrice = (shoppingBasketArr) => {
   // Write code here
+  const newArr = shoppingBasketArr.map((obj) =>({
+    ...obj,
+    totalPrice: obj.price * obj.quantity
+  }))
+  return newArr
 };
 
 /**
@@ -80,6 +90,11 @@ export const settotalPrice = (shoppingBasketArr) => {
  */
 export const totalShoppingBasket = (shoppingBasketArr) => {
   // Write code here
+  const grandTotal = shoppingBasketArr.reduce((acc, val) => {
+    return acc + val.totalPrice;
+  }, 0)
+
+  return grandTotal;
 };
 
 /* Advanced Challenges */
@@ -93,6 +108,8 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
  */
 export const getImportantKeys = (mealsArr) => {
   // Write code here
+  const newArr = mealsArr.map(({userCreated, timeStamp, ...keep}) => keep);
+  return newArr;
 };
 
 /**
@@ -107,6 +124,22 @@ export const getImportantKeys = (mealsArr) => {
  */
 export const setImportantKeys = (mealsArr) => {
   // Write code here
+  let newArr = JSON.parse(JSON.stringify(mealsArr));
+  for (let i = 0; i < newArr.length; i++) {
+    if (Object.keys(newArr[i]).includes('isVegetarian')) {
+      continue;
+    } else {
+      newArr[i].isVegetarian = false;
+    }
+  }
+
+  for (let i = 0; i < newArr.length; i++) {
+    if (!(Object.keys(newArr[i]).includes('timeToCook'))) {
+      newArr[i].timeToCook = 15;
+    }
+  }
+
+  return newArr;
 };
 
 /* Expert Challenge */
@@ -139,4 +172,33 @@ export const setImportantKeys = (mealsArr) => {
  */
 export const cleanCocktailResponseData = (cocktailData) => {
   // Write code here
+  let newArr = [];
+
+  for (let i = 0; i < cocktailData.length; i++) {
+    let cleanDrink = {
+      id: 0,
+      drink: "",
+      category: "",
+      alcoholic: "",
+      instructions: "",
+      ingredients: []
+    };
+    cleanDrink.id = cocktailData[i].idDrink;
+    cleanDrink.drink = cocktailData[i].strDrink;
+    cleanDrink.category = cocktailData[i].strCategory;
+    cleanDrink.alcoholic = cocktailData[i].strAlcoholic;
+    cleanDrink.instructions = cocktailData[i].strInstructions;
+    
+    for (let j = 0; j < Object.keys(cocktailData[i]).length; j++) {
+      
+
+      if (Object.keys(cocktailData[i])[j].includes("Ingredient") && 
+          Object.values(cocktailData[i])[j] != null) {
+        
+        cleanDrink.ingredients.push(Object.values(cocktailData[i])[j]);
+      }
+    }
+    newArr.push(cleanDrink);
+  }
+  return newArr;
 };
