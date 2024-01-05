@@ -125,13 +125,12 @@ export const getImportantKeys = (mealsArr) => {
 export const setImportantKeys = (mealsArr) => {
   // Write code here
   let newArr = JSON.parse(JSON.stringify(mealsArr));
+
   for (let i = 0; i < newArr.length; i++) {
-    if (Object.keys(newArr[i]).includes('isVegetarian')) {
-      continue;
-    } else {
+    if (!(Object.keys(newArr[i]).includes('isVegetarian'))) {
       newArr[i].isVegetarian = false;
     }
-  }
+  };
 
   for (let i = 0; i < newArr.length; i++) {
     if (!(Object.keys(newArr[i]).includes('timeToCook'))) {
@@ -190,14 +189,11 @@ export const cleanCocktailResponseData = (cocktailData) => {
     cleanDrink.instructions = cocktailData[i].strInstructions;
     
     for (let j = 0; j < Object.keys(cocktailData[i]).length; j++) {
-      
-
       if (Object.keys(cocktailData[i])[j].includes("Ingredient") && 
           Object.values(cocktailData[i])[j] != null) {
-        
         cleanDrink.ingredients.push(Object.values(cocktailData[i])[j]);
-      }
-    }
+        }
+    };
     newArr.push(cleanDrink);
   }
   return newArr;

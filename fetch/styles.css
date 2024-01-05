@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.search-bar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.card-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 5px;
+}
+
+img {
+  height: 96px;
+  width: 96px;
+}
+
+.card {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  background-color: lightgray;
+}
+
+.mon-img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  text-align: center;
+}
+
+dialog {
+  z-index: 5;
+  position: fixed;
+  right: 0;
+  height: 40px;
+  width: 200px;
+}
+
+.close-dialog-btn {
+  width: 20px;
+  border-radius: 100%;
+}
